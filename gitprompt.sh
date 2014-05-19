@@ -1,5 +1,10 @@
 #!/bin/sh
 
+function rd {
+  git branch > /dev/null 2>&1 || return 1
+  cd "$(git rev-parse --show-cdup)"
+}
+
 function async_run()
 {
   {
